@@ -44,7 +44,8 @@ function clean_log_tables() {
             'log_visitor_online',
             'report_event',
             'report_viewed_product_index',
-            'report_compared_product_index'
+            'report_compared_product_index',
+            'index_event'
         );
         
         // Connect to database, if there is a problem, it will display the error to you
