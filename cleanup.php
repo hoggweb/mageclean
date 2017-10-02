@@ -1,5 +1,5 @@
 <?php
-/**
+ /**
  * Magento Table Maintenance Script
  * Put this file in the root of the magento install and then in browser go to: 
  * http://DOMAIN.COM/cleanup.php?clean=log
@@ -66,11 +66,9 @@ function clean_log_tables() {
         echo "<p>Checking these tables within PHPMyAdmin or MySQL will confirm the new filesizes and improved performance.</p>";
 
     } else {
-
         // If script cannot find the local.xml file, display error.. If this is displayed, it most likely due to the script being put in the wrong folder.
         exit('Unable to locate and load local.xml file, make sure this file is in the root of the Magento install!');
-
     }
-} // END FUNCTION
+}
 
 ?>
