@@ -51,12 +51,19 @@ function clean_log_tables() {
         mysql_connect($db['host'], $db['user'], $db['pass']) or die(mysql_error());
         mysql_select_db($db['name']) or die(mysql_error());
         
+        // Friendly Output
+        echo "<h1>Magento Cleanup - Report</h1>";
+        echo "<p>The following tables have been truncated and optimised:</p>";
+        echo "<ol>";
+        
         // Loop through the array of table names above and for each one, TRUNCATE it and then OPTIMIZE it.
         foreach($tables as $table) {
             @mysql_query('TRUNCATE `'.$db['pref'].$table.'`');
             @mysql_query('OPTIMIZE TABLE `'.$db['pref'].$table.'`');
-            echo "Table ".$db['pref'].$table." Truncated and Optimized! <br />";
+            echo "<li>Table ".$db['pref'].$table." Truncated and Optimized!</li>";
         }
+        echo "</ol>";
+        echo "<p>Checking these tables within PHPMyAdmin or MySQL will confirm the new filesizes and improved performance.</p>";
 
     } else {
 
